@@ -1,0 +1,304 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Descubra o Mundo dos Games</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #f7eaff, #e3f4ff);
+  color: #292344;
+  text-align: center;
+}
+
+header { padding: 30px 15px 15px; }
+
+h1 { margin-bottom: 8px; }
+
+header p { color: #625b78; }
+
+main {
+  max-width: 1000px;
+  margin: auto;
+  padding: 15px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  height: 220px;
+  perspective: 1000px;
+  cursor: pointer;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  width: 100%;
+  color: inherit;
+  font: inherit;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.65s;
+  transform-style: preserve-3d;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.face {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 18px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  box-shadow: 0 6px 16px #33235520;
+}
+
+.front {
+  background: white;
+  border: 3px solid #d9c4ff;
+}
+
+.back {
+  background: #7654c8;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.picture {
+  font-size: 55px;
+  margin-bottom: 12px;
+}
+
+.front h2 { font-size: 17px; }
+
+.back p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.hint {
+  font-size: 12px;
+  color: #74698b;
+  margin-top: 12px;
+}
+
+button.reset {
+  margin: 25px 0;
+  padding: 13px 22px;
+  border: none;
+  border-radius: 30px;
+  background: #7654c8;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+footer {
+  padding: 18px;
+  font-size: 12px;
+  color: #74698b;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-inner { transition: none; }
+}
+</style>
+</head>
+
+<body>
+<header>
+  <h1>🎮 Descubra o Mundo dos Games</h1>
+  <p>Toque em um cartão para descobrir a resposta!</p>
+</header>
+
+<main>
+  <section class="cards" id="cards">
+
+    <button class="card" aria-label="Revelar resposta sobre Mario" aria-pressed="false">
+      <div class="card-inner">
+        <div class="face front">
+          <div class="picture">🍄</div>
+          <h2>Quem é o Mario?</h2>
+          <span class="hint">Toque para virar ↻</span>
+        </div>
+        <div class="face back">
+          <h2>Super Mario</h2>
+          <p>É um herói da Nintendo que vive aventuras para salvar a Princesa Peach.</p>
+        </div>
+      </div>
+    </button>
+
+    <button class="card" aria-label="Revelar resposta sobre Pikachu" aria-pressed="false">
+      <div class="card-inner">
+        <div class="face front">
+          <div class="picture">⚡</div>
+          <h2>Quem é o Pikachu?</h2>
+          <span class="hint">Toque para virar ↻</span>
+        </div>
+        <div class="face back">
+          <h2>Pikachu</h2>
+          <p>É um Pokémon elétrico conhecido por seus choques e sua amizade com Ash.</p>
+        </div>
+      </div>
+    </button>
+
+    <button class="card" aria-label="Revelar resposta sobre Minecraft" aria-pressed="false">
+      <div class="card-inner">
+        <div class="face front">
+          <div class="picture">🧱</div>
+          <h2>O que é Minecraft?</h2>
+          <span class="hint">Toque para virar ↻</span>
+        </div>
+        <div class="face back">
+          <h2>Minecraft</h2>
+          <p>É um jogo de exploração e construção em que você cria mundos com blocos.</p>
+        </div>
+      </div>
+    </button>
+
+    <button class="card" aria-label="Revelar resposta sobre Animal Crossing" aria-pressed="false">
+      <div class="card-inner">
+        <div class="face front">
+          <div class="picture">🏝️</div>
+          <h2>Animal Crossing</h2>
+          <span class="hint">Toque para virar ↻</span>
+        </div>
+        <div class="face back">
+          <h2>Sua própria ilha</h2>
+          <p>Você decora sua casa, explora a ilha e faz amizade com os moradores.</p>
+        </div>
+      </div>
+    </button>
+
+    <button class="card" aria-label="Revelar resposta sobre Sonic" aria-pressed="false">
+      <div class="card-inner">
+        <div class="face front">
+          <div class="picture">💎</div>
+          <h2>O que Sonic coleta?</h2>
+          <span class="hint">Toque para virar ↻</span>
+        </div>
+        <div class="face back">
+          <h2>Anéis dourados</h2>
+          <p>Os anéis protegem Sonic quando ele sofre danos durante a aventura.</p>
+        </div>
+      </div>
+    </button>
+
+    <button class="card" aria-label="Revelar resposta sobre Roblox" aria-pressed="false">
+      <div class="card-inner">
+        <div class="face front">
+          <div class="picture">🏆</div>
+          <h2>O que é Roblox?</h2>
+          <span class="hint">Toque para virar ↻</span>
+        </div>
+        <div class="face back">
+          <h2>Roblox</h2>
+          <p>É uma plataforma com experiências e jogos criados por usuários.</p>
+        </div>
+      </div>
+    </button>
+
+    <button class="card" aria-label="Revelar resposta sobre Princesa Peach" aria-pressed="false">
+      <div class="card-inner">
+        <div class="face front">
+          <div class="picture">👑</div>
+          <h2>Quem é Peach?</h2>
+          <span class="hint">Toque para virar ↻</span>
+        </div>
+        <div class="face back">
+          <h2>Princesa Peach</h2>
+          <p>É a princesa do Reino dos Cogumelos, personagem do universo Mario.</p>
+        </div>
+      </div>
+    </button>
+
+    <button class="card" aria-label="Revelar resposta sobre Mario Kart" aria-pressed="false">
+      <div class="card-inner">
+        <div class="face front">
+          <div class="picture">🏎️</div>
+          <h2>O que é Mario Kart?</h2>
+          <span class="hint">Toque para virar ↻</span>
+        </div>
+        <div class="face back">
+          <h2>Corrida divertida</h2>
+          <p>É uma série de corridas com personagens e itens especiais.</p>
+        </div>
+      </div>
+    </button>
+
+    <button class="card" aria-label="Revelar resposta sobre mobs" aria-pressed="false">
+      <div class="card-inner">
+        <div class="face front">
+          <div class="picture">🧟</div>
+          <h2>O que são mobs?</h2>
+          <span class="hint">Toque para virar ↻</span>
+        </div>
+        <div class="face back">
+          <h2>Criaturas do jogo</h2>
+          <p>No Minecraft, mobs são criaturas como animais, zumbis e esqueletos.</p>
+        </div>
+      </div>
+    </button>
+
+    <button class="card" aria-label="Revelar resposta sobre corações nos jogos" aria-pressed="false">
+      <div class="card-inner">
+        <div class="face front">
+          <div class="picture">❤️</div>
+          <h2>O que os corações indicam?</h2>
+          <span class="hint">Toque para virar ↻</span>
+        </div>
+        <div class="face back">
+          <h2>Vida do personagem</h2>
+          <p>Em muitos jogos, os corações mostram quanta vida ainda resta.</p>
+        </div>
+      </div>
+    </button>
+
+  </section>
+
+  <button class="reset" id="reset">🔄 Fechar todos os cartões</button>
+</main>
+
+<footer>
+  Projeto educativo de flashcards • Feito para praticar programação
+</footer>
+
+<script>
+const cards = document.querySelectorAll(".card");
+
+cards.forEach((card) => {
+  card.addEventListener("click", () => {
+    const isFlipped = card.classList.toggle("flipped");
+    card.setAttribute("aria-pressed", String(isFlipped));
+  });
+});
+
+document.querySelector("#reset").addEventListener("click", () => {
+  cards.forEach((card) => {
+    card.classList.remove("flipped");
+    card.setAttribute("aria-pressed", "false");
+  });
+});
+</script>
+</body>
+</html>
